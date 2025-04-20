@@ -1,0 +1,2 @@
+# SWTrans
+Sowoon Translator Repo
