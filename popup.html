@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>소운번역기 0.1.1</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-size: 11pt;
+    }
+    /* Style for the main title added to the body */
+    h1.page-title {
+      font-size: 12pt; /* Slightly larger title font size */
+      text-align: left;
+      margin-top: 0; /* Remove default top margin */
+      margin-bottom: 5px; /* Space below the title */
+      color: #333; /* Title color */
+    }
+    label {
+      display: block;
+      /*margin-bottom: 1px;*/
+      font-size: 10pt;
+    }
+    button {
+      width: 40%;
+      /*height: 24px;*/
+      /*padding: 10px;*/
+      font-size: 12pt;
+    }
+    input, div, select {
+      font-size: 11pt;
+      margin-bottom: 5px; /* Added spacing for better readability */
+    }
+    input[type="text"], input[type="password"], input[type="number"], select {
+      width: 96%;
+      height: 24px; /* Adjusted height */
+      padding: 2px 4px; /* Padding for better appearance */
+      box-sizing: border-box; /* Include padding in total height */
+    }
+    .group-box {
+        border: 6px solid #888585; /* Border for the group box */
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Added h1 tag to display the title visibly on the page -->
+  <h1 class="page-title">소운번역기 0.1.1</h1>
+
+  <div>API Key</div>
+  <input type="password" id="apiKey" placeholder="Enter API Key">
+
+  <div>Model</div>
+  <select id="aiModel">
+    <option value="gemini-2.0-flash-exp">gemini-2.0-flash-exp</option>
+    <option value="gemini-2.0-flash-thinking-exp-01-21">gemini-2.0-flash-thinking-exp-01-21</option>
+    <option value="gemini-2.5-pro-preview-03-25">gemini-2.5-pro-preview-03-25</option> 
+  </select>
+
+  <div>Temperature</div>
+  <input type="number" id="temper" value="0.2">
+
+  <div>top-P</div>
+  <input type="number" id="topP" value="0.9">
+
+  <div>top-K</div>
+  <input type="number" id="topK" value="2">
+
+  <button id="transBtn">번역시작</button>
+
+  <div class="group-box">
+      <label>번역Caching Page출력</label>
+      <div>
+          <label for="filePrefix">파일명 Prefix (소설이름)</label>
+          <input type="text" id="filePrefix" value="Page">
+      </div>
+      <div>
+          <label for="fileIndex">파일명 시작Index (Chapter번호)</label>
+          <input type="number" id="fileIndex" value="1">
+      </div>
+      <div>
+          <label for="numPages">총 페이지 수 (최대 10페이지)</label>
+          <input type="number" id="numPages" value="10">
+      </div>
+      <button id="cachingOutBtn">Caching출력</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
